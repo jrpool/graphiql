@@ -12,7 +12,7 @@ const userIsAuthenticated = UserAuthWrapper({
   redirectAction: () => {
     /* global __DEVELOPMENT__ __CLIENT__ window */
     if (__CLIENT__) {
-      const baseURL = __DEVELOPMENT__ ? 'http://localhost:8081' : 'https://idm.learnersguild.org'
+      const baseURL = __DEVELOPMENT__ ? 'http://idm.learnersguild.dev' : 'https://idm.learnersguild.org'
       window.location.href = `${baseURL}/sign-in?redirect=${encodeURIComponent(window.location.href)}`
     }
     return {type: 'ignore'}

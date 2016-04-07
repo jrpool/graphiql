@@ -14,7 +14,7 @@ class Home extends Component {
         label: 'idm',
         value: 'idm',
         serviceUrls: {
-          development: 'http://localhost:8081',
+          development: 'http://idm.learnersguild.dev',
           production: 'https://idm.learnersguild.org',
         },
       },
@@ -22,7 +22,7 @@ class Home extends Component {
         label: 'game',
         value: 'game',
         serviceUrls: {
-          development: 'http://localhost:8086',
+          development: 'http://game.learnersguild.dev',
           production: 'https://game.learnersguild.org',
         },
       },
