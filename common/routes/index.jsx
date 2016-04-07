@@ -9,9 +9,12 @@ import BlankLayout from '../containers/BlankLayout'
 import Home from '../containers/Home'
 
 const userIsAuthenticated = UserAuthWrapper({
-  failureRedirectPath: 'https://idm.learnersguild.org/sign-in',
   authSelector: state => state.auth.currentUser,
-  redirectAction: routerActions.replace,
+  redirectAction: () => {
+    const baseURL = __DEVELOPMENT__ ? 'http://localhost:8081' : 'https://idm.learnersguild.org'
+    window.location.href = `${baseURL}/sign-in?redirect=${encodeURIComponent(window.location.href)}`
+    return {type: 'ignore'}
+  },
   wrapperDisplayName: 'userIsAuthenticated',
 })
 
