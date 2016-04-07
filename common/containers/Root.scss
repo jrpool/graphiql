@@ -1,0 +1,24 @@
+@import "node_modules/normalize.css/normalize";
+
+// Global CSS.
+html {
+  font-size: 62.5%;
+}
+html, body, #root {
+  height: 100%;
+  overflow-y: scroll; /* has to be scroll, not auto */
+  -webkit-overflow-scrolling: touch;
+  > div {
+    height: 100%;
+  }
+}
+
+.button-icon {
+  padding-top: 0.1rem;
+  margin-right: 0.75rem;
+}
+
+.service-label {
+  font-weight: bold;
+  margin: 0 0.5rem 0 1rem;
+}
