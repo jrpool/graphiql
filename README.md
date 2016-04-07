@@ -8,9 +8,9 @@ Be sure you've read the [instructions for contributing](./CONTRIBUTING.md).
 
 1. Clone the repository.
 
-2. Setup [pow][pow]. Then figure out which port you intend to use and create the pow config file:
+2. Setup and run [mehserve][mehserve]. Then figure out which port you intend to use and create the mehserve config file:
 
-        $ echo 9002 > ~/.pow/graphiql.learnersguild
+        $ echo 9002 > ~/.mehserve/graphiql.learnersguild
 
 3. Set your `NODE_ENV` environment variable:
 
@@ -45,3 +45,4 @@ See the [LICENSE](./LICENSE) file.
 
 
 [idm]: https://github.com/LearnersGuild/idm
+[mehserve]: https://github.com/timecounts/mehserve
