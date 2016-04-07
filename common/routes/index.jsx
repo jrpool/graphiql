@@ -1,7 +1,6 @@
 /* eslint new-cap: [2, {"capIsNewExceptions": ["UserAuthWrapper"]}] */
 import React from 'react'
 import {Route, IndexRoute} from 'react-router'
-import {routerActions} from 'react-router-redux'
 import {UserAuthWrapper} from 'redux-auth-wrapper'
 
 import App from '../containers/App'
@@ -11,8 +10,11 @@ import Home from '../containers/Home'
 const userIsAuthenticated = UserAuthWrapper({
   authSelector: state => state.auth.currentUser,
   redirectAction: () => {
-    const baseURL = __DEVELOPMENT__ ? 'http://localhost:8081' : 'https://idm.learnersguild.org'
-    window.location.href = `${baseURL}/sign-in?redirect=${encodeURIComponent(window.location.href)}`
+    /* global __DEVELOPMENT__ __CLIENT__ window */
+    if (__CLIENT__) {
+      const baseURL = __DEVELOPMENT__ ? 'http://localhost:8081' : 'https://idm.learnersguild.org'
+      window.location.href = `${baseURL}/sign-in?redirect=${encodeURIComponent(window.location.href)}`
+    }
     return {type: 'ignore'}
   },
   wrapperDisplayName: 'userIsAuthenticated',
