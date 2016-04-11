@@ -1,11 +1,10 @@
-/* global __CLIENT__ */
+/* global __CLIENT__ window */
 import './graphiQLHacks' // this is terrible, but GraphiQL doesn't support SSR
 import React, {Component, PropTypes} from 'react'
 
 import GraphiQL from 'graphiql'
 
 import 'graphiql/graphiql.css'
-
 
 class ServiceStorage {
   constructor(service) {
@@ -30,7 +29,6 @@ class ServiceStorage {
     }
   }
 }
-
 
 export default class Home extends Component {
   render() {
