@@ -16,9 +16,10 @@
     "build:profile:prod": "mkdir -p dist && webpack --profile --json --config config/webpack-production-config.js > tmp/webpack-production-stats.json",
     "build:profile:dev": "mkdir -p dist && webpack --profile --json --config config/webpack-development-config.js > tmp/webpack-development-stats.json",
     "icons:fetch": "mkdir -p dist && curl -s https://brand.learnersguild.org/icontags > dist/icons-metadata.json",
+    "xo": "./node_modules/.bin/xo",
     "start": "npm run icons:fetch && node server",
     "postinstall": "npm run build",
-    "test": "./node_modules/.bin/xo"
+    "test": "npm run xo"
   },
   "keywords": [
     "graphql",
@@ -96,6 +97,9 @@
     "node": "5.6.x",
     "npm": "3.7.x"
   },
+  "precommit": [
+    "xo"
+  ],
   "xo": {
     "extends": "xo-react",
     "rules": {
