@@ -13,20 +13,20 @@ class Home extends Component {
       idm: {
         label: 'idm',
         value: 'idm',
-        serviceUrls: {
-          development: 'http://idm.learnersguild.dev',
-          production: 'https://idm.learnersguild.org',
-        },
+        serviceURL: process.env.IDM_BASE_URL,
       },
       game: {
         label: 'game',
         value: 'game',
-        serviceUrls: {
-          development: 'http://game.learnersguild.dev',
-          production: 'https://game.learnersguild.org',
-        },
+        serviceURL: process.env.GAME_BASE_URL,
       },
     }
+    this.serviceOptions = Object.keys(this.services).map(key => {
+      return {
+        label: this.services[key].label,
+        value: this.services[key].value,
+      }
+    })
     this.state = {service: 'idm'}
     this.handleSelectService = this.handleSelectService.bind(this)
   }
@@ -38,18 +38,14 @@ class Home extends Component {
 
   render() {
     const {dispatch, auth} = this.props
-    const services = Object.keys(this.services).map(key => {
-      const {label, value} = this.services[key]
-      return {label, value}
-    })
     const {service} = this.state
-    const {serviceUrls} = this.services[service]
+    const {serviceURL} = this.services[service]
 
     return (
       <HomeComponent
-        fetcher={getGraphQLFetcher(dispatch, serviceUrls, auth, false)}
+        fetcher={getGraphQLFetcher(dispatch, serviceURL, auth, false)}
         service={service}
-        services={services}
+        services={this.serviceOptions}
         onSelectService={this.handleSelectService}
         />
     )

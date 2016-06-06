@@ -10,10 +10,9 @@ import Home from '../containers/Home'
 const userIsAuthenticated = UserAuthWrapper({
   authSelector: state => state.auth.currentUser,
   redirectAction: () => {
-    /* global __DEVELOPMENT__ __CLIENT__ window */
+    /* global __CLIENT__ window */
     if (__CLIENT__) {
-      const baseURL = __DEVELOPMENT__ ? 'http://idm.learnersguild.dev' : 'https://idm.learnersguild.org'
-      window.location.href = `${baseURL}/sign-in?redirect=${encodeURIComponent(window.location.href)}`
+      window.location.href = `${process.env.IDM_BASE_URL}/sign-in?redirect=${encodeURIComponent(window.location.href)}`
     }
     return {type: 'ignore'}
   },

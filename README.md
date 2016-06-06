@@ -18,11 +18,12 @@ Be sure you've read the [instructions for contributing](./CONTRIBUTING.md).
 
 4. Get the private and public keys for verifying / extending JWT tokens (see the [idm][idm] service).
 
-5. Create your `.env` file for your environment. Example:
+5. Create a `.env.development` file for your local environment. Example:
 
         PORT=9002
-        APP_BASEURL=http://graphiql.learnersguild.dev
+        APP_BASE_URL=http://graphiql.learnersguild.dev
         IDM_BASE_URL=http://idm.learnersguild.dev
+        GAME_BASE_URL=http://game.learnersguild.dev
         JWT_PRIVATE_KEY="<get from IDM service>"
         JWT_PUBLIC_KEY="<get from IDM service>"
 
