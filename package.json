@@ -12,9 +12,8 @@
     "email": "jeffrey@learnersguild.org"
   },
   "scripts": {
-    "build": "mkdir -p dist && webpack --config config/webpack-production-config.js",
-    "build:profile:prod": "mkdir -p dist && webpack --profile --json --config config/webpack-production-config.js > tmp/webpack-production-stats.json",
-    "build:profile:dev": "mkdir -p dist && webpack --profile --json --config config/webpack-development-config.js > tmp/webpack-development-stats.json",
+    "build": "mkdir -p dist && webpack --config config/webpack.js",
+    "build:profile": "mkdir -p dist && webpack --profile --json --config config/webpack.js > tmp/webpack-stats.json",
     "icons:fetch": "mkdir -p dist && curl -s https://brand.learnersguild.org/icontags > dist/icons-metadata.json",
     "xo": "./node_modules/.bin/xo",
     "start": "npm run icons:fetch && node server",
@@ -43,6 +42,7 @@
     "babel-preset-react": "^6.5.0",
     "babel-preset-stage-2": "^6.5.0",
     "babel-runtime": "^6.6.1",
+    "config": "^1.21.0",
     "cookie-parser": "^1.4.1",
     "css-loader": "^0.23.0",
     "css-modules-require-hook": "^3.0.0",

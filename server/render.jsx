@@ -9,21 +9,24 @@ import thunk from 'redux-thunk'
 
 import {RouterContext, match} from 'react-router'
 
+import config from 'config'
+
 import Root from '../common/containers/Root'
 import routes from '../common/routes'
 import rootReducer from '../common/reducers'
 import iconsMetadata from '../dist/icons-metadata'
 
-const sentry = new raven.Client(process.env.SENTRY_SERVER_DSN)
+const sentry = new raven.Client(config.server.sentryDSN)
 
 export function renderFullPage(renderedAppHtml, initialState) {
   const title = 'GraphiQL'
-  let vendorJs = ''
-  if (process.env.NODE_ENV !== 'development') {
-    vendorJs = `<script src="/vendor.js"></script>`
-  }
-  const sentryClientDSN = process.env.SENTRY_CLIENT_DSN ? `'${process.env.SENTRY_CLIENT_DSN}'` : undefined
 
+  let vendorJs = ''
+  if (config.app.minify) {
+    vendorJs = '<script src="/vendor.js"></script>'
+  }
+
+  const sentryClientDSN = config.app.sentryDSN ? `'${config.app.sentryDSN}'` : undefined
 
   return `
     <!doctype html>
@@ -83,9 +86,8 @@ function getInitialState(req) {
 function fetchAllComponentData(dispatch, renderProps) {
   const {routes} = renderProps
   const funcs = routes.map(route => {
-    if (route.component && typeof route.component.fetchData === 'function') {
-      return route.component.fetchData(dispatch, renderProps)
-    }
+    return route.component && typeof route.component.fetchData === 'function' ?
+      route.component.fetchData(dispatch, renderProps) : null
   })
   return Promise.all(funcs)
 }

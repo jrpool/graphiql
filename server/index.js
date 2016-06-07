@@ -1,23 +1,22 @@
 /* eslint-disable no-undef */
+const path = require('path')
+
+const ENV_PATH = path.resolve(__dirname, `../.env.${process.env.NODE_ENV}`)
+
 require('babel-core/register')
 require('babel-polyfill')
+require('dotenv').config({path: ENV_PATH, silent: true})
 
-const configureCSSModules = require('./configureCSSModules')
+const config = require('config')
+const piping = require('piping')
 
 // These may also be defined by webpack on the client-side.
 global.__CLIENT__ = false
 global.__SERVER__ = true
-global.__DEVELOPMENT__ = process.env.NODE_ENV === 'development'
-global.__DEVTOOLS__ = global.__CLIENT__ && __DEVELOPMENT__
 
-if (process.env.NODE_ENV === 'development') {
-  if (require('piping')()) {
-    // application logic here
-    require('dotenv').load()
-    configureCSSModules()
-    require('./server').start()
-  }
-} else {
-  configureCSSModules()
+if (!config.server.hotReload || piping()) {
+  // because we use piping; this file will be evaluated twice;
+  // ensure we only process setup once.
+  require('./configureCSSModules')()
   require('./server').start()
 }

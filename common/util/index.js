@@ -2,7 +2,7 @@ import fetch from 'isomorphic-fetch'
 
 import {updateJWT} from '../actions/updateJWT'
 
-export function getGraphQLFetcher(dispatch, serviceUrls, auth, throwErrors = true) {
+export function getGraphQLFetcher(dispatch, serviceBaseURL, auth, throwErrors = true) {
   return graphQLParams => {
     const options = {
       method: 'post',
@@ -16,10 +16,8 @@ export function getGraphQLFetcher(dispatch, serviceUrls, auth, throwErrors = tru
         Authorization: `Bearer ${auth.lgJWT}`,
       })
     }
-    /* global __DEVELOPMENT__ */
-    const baseUrl = __DEVELOPMENT__ ? serviceUrls.development : serviceUrls.production
 
-    return fetch(`${baseUrl}/graphql`, options)
+    return fetch(`${serviceBaseURL}/graphql`, options)
       .then(resp => {
         if (!resp.ok) {
           console.error('GraphQL ERROR:', resp.statusText)
