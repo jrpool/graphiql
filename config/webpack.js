@@ -94,16 +94,7 @@ if (config.app.minify) {
 }
 
 /** file loaders */
-const cssLoaders = [
-  'style',
-  'css?sourceMap&importLoaders=2' +
-  '!sass?sourceMap'
-]
-const componentCssLoaders = [
-  'style',
-  'css?sourceMap&modules&localIdentName=[name]__[local]__[hash:base64:5]&importLoaders=3' +
-  '!sass?sourceMap'
-]
+const loaderKey = config.app.minify ? 'loader' : 'loaders'
 const loaders = [
   {
     test: /\.jsx?$/,
@@ -125,7 +116,15 @@ const loaders = [
   // global styles that SHOULDN'T be converted into component-specific modules
   {
     test: /.s?css$/,
-    loaders: config.app.minify ? ExtractTextPlugin.extract.apply(null, cssLoaders) : cssLoaders,
+    [loaderKey]: config.app.minify ? ExtractTextPlugin.extract(
+      'style',
+      'css?sourceMap&importLoaders=2' +
+      '!sass?sourceMap'
+    ) : [
+      'style',
+      'css?sourceMap&importLoaders=2',
+      'sass?sourceMap',
+    ],
     include: [
       path.resolve(ROOT_DIR, 'common', 'containers', 'Root.scss'),
       path.resolve(ROOT_DIR, 'node_modules', 'graphiql', 'graphiql.css')
@@ -135,7 +134,15 @@ const loaders = [
   // component styles that SHOULD be converted into component-specific modules
   {
     test: /\.s?css$/,
-    loaders: config.app.minify ? ExtractTextPlugin.extract.apply(null, componentCssLoaders) : componentCssLoaders,
+    [loaderKey]: config.app.minify ? ExtractTextPlugin.extract(
+      'style',
+      'css?sourceMap&modules&localIdentName=[name]__[local]__[hash:base64:5]&importLoaders=3' +
+      '!sass?sourceMap'
+    ) : [
+      'style',
+      'css?sourceMap&modules&localIdentName=[name]__[local]__[hash:base64:5]&importLoaders=3',
+      'sass?sourceMap',
+    ],
     include: [
       path.resolve(ROOT_DIR, 'common'),
     ],

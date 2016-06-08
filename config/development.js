@@ -9,5 +9,5 @@ module.exports = {
     hotReload: true,
     noErrors: true,
     devTools: true,
-  }
+  },
 }
