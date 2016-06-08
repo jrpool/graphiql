@@ -8,7 +8,7 @@ const ENV_PATH = path.resolve(__dirname, `../.env.${process.env.NODE_ENV}`)
 
 require('dotenv').config({path: ENV_PATH, silent: true})
 
-const config = require('config')
+const config = require('./')
 
 /** entry points (bundles) */
 const entry = {

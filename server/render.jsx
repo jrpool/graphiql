@@ -1,5 +1,4 @@
 /* eslint-disable no-undef */
-
 import raven from 'raven'
 
 import React from 'react'
@@ -9,12 +8,12 @@ import thunk from 'redux-thunk'
 
 import {RouterContext, match} from 'react-router'
 
-import config from 'config'
-
 import Root from '../common/containers/Root'
 import routes from '../common/routes'
 import rootReducer from '../common/reducers'
 import iconsMetadata from '../dist/icons-metadata'
+
+const config = require('../config')
 
 const sentry = new raven.Client(config.server.sentryDSN)
 

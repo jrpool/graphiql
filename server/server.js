@@ -1,6 +1,5 @@
 /* eslint-disable no-console, no-undef, no-unused-vars */
 /* eslint new-cap: [2, {"capIsNewExceptions": ["HTTPS"]}] */
-
 import http from 'http'
 import path from 'path'
 import Express from 'express'
@@ -9,7 +8,7 @@ import cookieParser from 'cookie-parser'
 import raven from 'raven'
 import {HTTPS as https} from 'express-sslify'
 
-const config = require('config')
+const config = require('../config')
 
 import configureApp from './configureApp'
 import configureAuth from './configureAuth'

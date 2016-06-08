@@ -1,4 +1,5 @@
-const config = require('config')
+/* eslint-disable xo/filename-case */
+const config = require('../config')
 
 export default function configureApp(app) {
   if (config.app.hotReload) {

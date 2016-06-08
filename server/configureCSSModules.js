@@ -1,3 +1,4 @@
+/* eslint-disable xo/filename-case */
 import path from 'path'
 import genericNames from 'generic-names'
 

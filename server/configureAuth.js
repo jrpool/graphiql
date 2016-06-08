@@ -1,3 +1,4 @@
+/* eslint-disable xo/filename-case */
 import {
   addUserToRequestFromJWT,
   extendJWTExpiration,
