@@ -1,5 +1,10 @@
 # graphiql
 
+[![Code Climate GPA](https://codeclimate.com/repos/579a5a63ecc56b00640024ab/badges/744d8456fd1e64520be3/gpa.svg)](https://codeclimate.com/repos/579a5a63ecc56b00640024ab/feed)
+[![Code Climate Issue Count](https://codeclimate.com/repos/579a5a63ecc56b00640024ab/badges/744d8456fd1e64520be3/issue_count.svg)](https://codeclimate.com/repos/579a5a63ecc56b00640024ab/feed)
+[![Test Coverage](https://codeclimate.com/repos/579a5a63ecc56b00640024ab/badges/744d8456fd1e64520be3/coverage.svg)](https://codeclimate.com/repos/579a5a63ecc56b00640024ab/coverage)
+
+
 GraphQL API Explorer for Learners Guild services.
 
 ## Getting Started
