@@ -118,6 +118,7 @@
       "comma-dangle": [
         0
       ],
+      "import/no-extraneous-dependencies": 0,
       "no-negated-condition": [
         0
       ],
