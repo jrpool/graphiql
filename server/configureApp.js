@@ -1,5 +1,5 @@
 /* eslint-disable xo/filename-case */
-const config = require('../config')
+const config = require('src/config')
 
 export default function configureApp(app) {
   if (config.app.hotReload) {
@@ -8,7 +8,8 @@ export default function configureApp(app) {
     const webpack = require('webpack')
     const webpackDevMiddleware = require('webpack-dev-middleware')
     const webpackHotMiddleware = require('webpack-hot-middleware')
-    const webpackConfig = require(require('path').resolve(__dirname, '../config/webpack'))
+    const webpackConfig = require('src/config/webpack')
+
     const compiler = webpack(webpackConfig)
 
     app.use(webpackDevMiddleware(compiler, {

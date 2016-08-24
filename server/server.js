@@ -8,11 +8,11 @@ import cookieParser from 'cookie-parser'
 import raven from 'raven'
 import {HTTPS as https} from 'express-sslify'
 
-const config = require('../config')
-
 import configureApp from './configureApp'
 import configureAuth from './configureAuth'
 import handleRender from './render'
+
+const config = require('src/config')
 
 export function start() {
   // error handling

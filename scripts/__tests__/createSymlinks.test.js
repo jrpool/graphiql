@@ -13,6 +13,7 @@ const expectedLinks = [
   {path: `${linkDir}/client`, target: `${rootDir}/client`},
   {path: `${linkDir}/common`, target: `${rootDir}/common`},
   {path: `${linkDir}/config`, target: `${rootDir}/config`},
+  {path: `${linkDir}/dist`, target: `${rootDir}/dist`},
   {path: `${linkDir}/scripts`, target: `${rootDir}/scripts`},
   {path: `${linkDir}/server`, target: `${rootDir}/server`},
   {path: `${linkDir}/test`, target: `${rootDir}/test`},

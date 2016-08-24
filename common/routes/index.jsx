@@ -3,9 +3,9 @@ import React from 'react'
 import {Route, IndexRoute} from 'react-router'
 import {UserAuthWrapper} from 'redux-auth-wrapper'
 
-import App from '../containers/App'
-import BlankLayout from '../containers/BlankLayout'
-import Home from '../containers/Home'
+import App from 'src/common/containers/App'
+import BlankLayout from 'src/common/containers/BlankLayout'
+import Home from 'src/common/containers/Home'
 
 const userIsAuthenticated = UserAuthWrapper({
   authSelector: state => state.auth.currentUser,
