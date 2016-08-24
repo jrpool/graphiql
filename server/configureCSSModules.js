@@ -5,6 +5,7 @@ import genericNames from 'generic-names'
 export default function configureCSSModules() {
   const hook = require('css-modules-require-hook')
   const sass = require('node-sass')
+
   hook({
     extensions: ['.css', '.scss'],
     generateScopedName: (name, filepath) => {

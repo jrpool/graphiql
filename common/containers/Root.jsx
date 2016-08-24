@@ -1,6 +1,5 @@
 import React, {Component, PropTypes} from 'react'
-import {connect} from 'react-redux'
-import {Provider} from 'react-redux'
+import {Provider, connect} from 'react-redux'
 
 import './Root.scss'
 

@@ -8,12 +8,12 @@ import thunk from 'redux-thunk'
 
 import {RouterContext, match} from 'react-router'
 
-import Root from '../common/containers/Root'
-import routes from '../common/routes'
-import rootReducer from '../common/reducers'
-import iconsMetadata from '../dist/icons-metadata'
+import Root from 'src/common/containers/Root'
+import routes from 'src/common/routes'
+import rootReducer from 'src/common/reducers'
+import iconsMetadata from 'src/dist/icons-metadata'
 
-const config = require('../config')
+const config = require('src/config')
 
 const sentry = new raven.Client(config.server.sentryDSN)
 

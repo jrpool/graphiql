@@ -1,8 +1,8 @@
 import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
 
-import HomeComponent from '../components/Home'
-import {getGraphQLFetcher} from '../util'
+import HomeComponent from 'src/common/components/Home'
+import {getGraphQLFetcher} from 'src/common/util'
 
 import 'graphiql/graphiql.css'
 
