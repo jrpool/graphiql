@@ -38,7 +38,7 @@
   },
   "homepage": "https://github.com/LearnersGuild/graphiql#readme",
   "dependencies": {
-    "@learnersguild/idm-jwt-auth": "^1.0.0",
+    "@learnersguild/idm-jwt-auth": "^2.0.1",
     "babel-cli": "^6.6.5",
     "babel-core": "^6.7.0",
     "babel-loader": "^6.2.4",
