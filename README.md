@@ -41,7 +41,7 @@ Be sure you've read the [instructions for contributing](./CONTRIBUTING.md).
     PORT=9002
     APP_BASE_URL=http://graphiql.learnersguild.dev
     IDM_BASE_URL=http://idm.learnersguild.dev
-    GAME_BASE_URL=http://game.learnersguild.dev
+    GAME_BASE_URL=http://echo.learnersguild.dev
     JWT_PRIVATE_KEY="<get from IDM service>"
     JWT_PUBLIC_KEY="<get from IDM service>"
     ```
