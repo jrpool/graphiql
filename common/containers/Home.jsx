@@ -15,10 +15,10 @@ class Home extends Component {
         value: 'idm',
         serviceURL: process.env.IDM_BASE_URL,
       },
-      game: {
-        label: 'game',
-        value: 'game',
-        serviceURL: process.env.GAME_BASE_URL,
+      echo: {
+        label: 'echo',
+        value: 'echo',
+        serviceURL: process.env.ECHO_BASE_URL,
       },
     }
     this.serviceOptions = Object.keys(this.services).map(key => {

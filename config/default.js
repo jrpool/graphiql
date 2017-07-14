@@ -28,7 +28,7 @@ module.exports = {
     baseURL: process.env.IDM_BASE_URL,
   },
 
-  game: {
-    baseURL: process.env.GAME_BASE_URL,
+  echo: {
+    baseURL: process.env.ECHO_BASE_URL,
   },
 }

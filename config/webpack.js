@@ -59,7 +59,7 @@ const plugins = [
       // useful to reduce the size of client-side libraries, e.g. react
       NODE_ENV: JSON.stringify(process.env.NODE_ENV),
       IDM_BASE_URL: JSON.stringify(config.idm.baseURL),
-      GAME_BASE_URL: JSON.stringify(config.game.baseURL),
+      ECHO_BASE_URL: JSON.stringify(config.echo.baseURL),
     },
     '__CLIENT__': true,
     '__SERVER__': false
