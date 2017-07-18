@@ -42,8 +42,8 @@ export function start() {
   }
 
   // Use this middleware to server up static files
-  app.use(serveStatic(path.join(__dirname, '../dist')))
-  app.use(serveStatic(path.join(__dirname, '../public')))
+  app.use(serveStatic(path.join(__dirname, '../../dist')))
+  app.use(serveStatic(path.join(__dirname, '../../public')))
 
   // Configure authentication via Auth0.
   configureAuth(app)

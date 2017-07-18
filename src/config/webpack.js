@@ -3,18 +3,19 @@ const webpack = require('webpack')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 
-const ROOT_DIR = path.resolve(__dirname, '..')
-const ENV_PATH = path.resolve(__dirname, `../.env.${process.env.NODE_ENV}`)
+const ROOT_DIR = path.resolve(__dirname, '../..')
+const SRC_DIR = `${ROOT_DIR}/src`
+const ENV_PATH = `${ROOT_DIR}/.env.${process.env.NODE_ENV}`
 
 require('dotenv').config({path: ENV_PATH, silent: true})
 
-const config = require('./')
+const config = require('./index')
 
 /** entry points (bundles) */
 const entry = {
   app: [
     'babel-polyfill',
-    './client'
+    `${SRC_DIR}/client`,
   ]
 }
 if (config.app.hotReload) {
@@ -126,7 +127,7 @@ const loaders = [
       'sass?sourceMap',
     ],
     include: [
-      path.resolve(ROOT_DIR, 'common', 'containers', 'Root.scss'),
+      path.resolve(SRC_DIR, 'common', 'containers', 'Root.scss'),
       path.resolve(ROOT_DIR, 'node_modules', 'graphiql', 'graphiql.css')
     ],
   },
@@ -144,10 +145,10 @@ const loaders = [
       'sass?sourceMap',
     ],
     include: [
-      path.resolve(ROOT_DIR, 'common'),
+      path.resolve(SRC_DIR, 'common'),
     ],
     exclude: [
-      path.resolve(ROOT_DIR, 'common', 'containers', 'Root.scss'),
+      path.resolve(SRC_DIR, 'common', 'containers', 'Root.scss'),
     ],
   },
 
@@ -170,5 +171,5 @@ module.exports = {
   plugins,
   context: ROOT_DIR,
   module: {loaders},
-  toolbox: {theme: './common/theme.scss'}
+  toolbox: {theme: `${SRC_DIR}/common/theme.scss`},
 }
