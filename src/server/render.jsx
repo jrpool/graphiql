@@ -11,7 +11,7 @@ import {RouterContext, match} from 'react-router'
 import Root from 'src/common/containers/Root'
 import routes from 'src/common/routes'
 import rootReducer from 'src/common/reducers'
-import iconsMetadata from 'src/dist/icons-metadata'
+import iconsMetadata from '../../dist/icons-metadata'
 
 const config = require('src/config')
 
