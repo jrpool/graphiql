@@ -8,8 +8,6 @@ GraphQL API Explorer for Learners Guild services.
 
 ## Getting Started
 
-Be sure you've read the [instructions for contributing](./CONTRIBUTING.md).
-
 1. **Globally** install [nvm][nvm], [avn][avn], and [avn-nvm][avn-nvm].
 
     ```bash
