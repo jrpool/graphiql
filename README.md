@@ -8,7 +8,7 @@ GraphQL API Explorer for Learners Guild services.
 
 ## Getting Started
 
-1. **Globally** install [nvm][nvm], [avn][avn], and [avn-nvm][avn-nvm].
+1. If you have not already, **globally** install [nvm][nvm], [avn][avn], and [avn-nvm][avn-nvm].
 
     ```bash
     curl -o- https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
@@ -16,21 +16,21 @@ GraphQL API Explorer for Learners Guild services.
     avn setup
     ```
 
-2. Clone the repository.
+2. Fork and clone this repository.
 
-3. Setup and run [mehserve][mehserve]. Then figure out which port you intend to use and create the mehserve config file:
+3. If you have not already, set up and run [mehserve][mehserve]. Then figure out which port you intend to use and create the mehserve config file:
 
     ```bash
     echo 9002 > ~/.mehserve/graphiql.learnersguild
     ```
 
-4. Set your `NODE_ENV` environment variable:
+4. If you have not already, set your `NODE_ENV` environment variable:
 
     ```bash
     export NODE_ENV=development
     ```
 
-5. Get the private and public keys for verifying / extending JWT tokens (see the [idm][idm] service).
+5. Get the private and public keys for verifying and extending JWT tokens. They should already be in the `env.development` file in your IDM directory. (See the [idm][idm] service).
 
 6. Create a `.env.development` file for your local environment. Example:
 
@@ -39,8 +39,8 @@ GraphQL API Explorer for Learners Guild services.
     APP_BASE_URL=http://graphiql.learnersguild.dev
     IDM_BASE_URL=http://idm.learnersguild.dev
     ECHO_BASE_URL=http://echo.learnersguild.dev
-    JWT_PRIVATE_KEY="<get from IDM service>"
-    JWT_PUBLIC_KEY="<get from IDM service>"
+    JWT_PRIVATE_KEY="<get from .env.development file in your IDM directory>"
+    JWT_PUBLIC_KEY="<get from .env.development file in your IDM directory>"
     ```
 
 7. Run the setup tasks:
@@ -58,7 +58,7 @@ GraphQL API Explorer for Learners Guild services.
 9. Visit the server in your browser:
 
     ```bash
-    open http://graphiql.learnersguild.dev
+    http://graphiql.learnersguild.dev
     ```
 
 ## License
