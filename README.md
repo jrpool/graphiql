@@ -55,10 +55,24 @@ GraphQL API Explorer for Learners Guild services.
     npm start
     ```
 
-9. Visit the server in your browser:
+9. Start (`npm start`) both IDM and Echo. Then visit the server’s API explorer in your browser.
 
     ```bash
     http://graphiql.learnersguild.dev
+    ```
+
+10. The API explorer offers access to both IDM and Echo. Choose Echo, then enter the following query in the left pane and click the ▶ button. In the next pane, you should see a JSON representation of Guild member names, handles, and phases, as of the time when the seed data (a mixture of real and fake) were created.
+
+    ```
+    query {
+      findUsers {
+        name,
+        handle,
+        phase {
+          number
+        }
+      }
+    }
     ```
 
 ## License
